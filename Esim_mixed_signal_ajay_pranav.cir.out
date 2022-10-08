@@ -1,0 +1,44 @@
+* c:\users\pranav\desktop\esim\esim_mixed_signal_ajay_pranav\esim_mixed_signal_ajay_pranav.cir
+
+.include avsd_opamp.sub
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+.lib "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.include "C:\Users\Pranav\Desktop\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+x1 net-_x1-pad1_ net-_x1-pad2_ net-_sc1-pad2_ in1 net-_sc1-pad1_ gnd avsd_opamp
+x2 net-_x2-pad1_ net-_x2-pad2_ net-_sc2-pad2_ in2 net-_sc3-pad2_ gnd avsd_opamp
+x3 net-_sc1-pad3_ net-_x3-pad2_ net-_sc5-pad2_ net-_sc4-pad1_ out gnd avsd_opamp
+v2  in2 gnd sine(0 0.05 1 0 0)
+v1  in1 gnd sine(0 0.05 1 0 0)
+v6 net-_x1-pad1_ gnd  dc 1
+v4 gnd net-_x1-pad2_  dc 1
+v5 gnd net-_x2-pad2_  dc 1
+v3 net-_x2-pad1_ gnd  dc 1
+v7 net-_sc1-pad3_ gnd  dc 1
+v8 gnd net-_x3-pad2_  dc 1
+* s c m o d e
+xsc5 net-_sc1-pad1_ net-_sc5-pad2_ net-_sc1-pad3_ sky130_fd_pr__res_generic_pd L=0.85
+xsc6 net-_sc5-pad2_ out net-_sc1-pad3_ sky130_fd_pr__res_generic_pd L=0.85
+xsc1 net-_sc1-pad1_ net-_sc1-pad2_ net-_sc1-pad3_ sky130_fd_pr__res_generic_pd L=0.85
+xsc2 net-_sc1-pad2_ net-_sc2-pad2_ net-_sc1-pad3_ sky130_fd_pr__res_generic_pd L=0.85
+xsc3 net-_sc2-pad2_ net-_sc3-pad2_ net-_sc1-pad3_ sky130_fd_pr__res_generic_pd L=0.85
+xsc4 net-_sc4-pad1_ net-_sc3-pad2_ gnd sky130_fd_pr__res_generic_pd L=0.85
+xsc7 gnd net-_sc4-pad1_ gnd sky130_fd_pr__res_generic_pd L=0.85
+* u3  out plot_v1
+* u1  in1 plot_v1
+* u2  in2 plot_v1
+.tran 0.01e-00 10e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(out)
+plot v(in1)
+plot v(in2)
+.endc
+.end

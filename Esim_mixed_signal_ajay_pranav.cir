@@ -1,0 +1,32 @@
+* C:\Users\Pranav\Desktop\eSIM\Esim_mixed_signal_ajay_pranav\Esim_mixed_signal_ajay_pranav.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/08/22 23:00:20
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+X1  Net-_X1-Pad1_ Net-_X1-Pad2_ Net-_SC1-Pad2_ in1 Net-_SC1-Pad1_ GND avsd_opamp		
+X2  Net-_X2-Pad1_ Net-_X2-Pad2_ Net-_SC2-Pad2_ in2 Net-_SC3-Pad2_ GND avsd_opamp		
+X3  Net-_SC1-Pad3_ Net-_X3-Pad2_ Net-_SC5-Pad2_ Net-_SC4-Pad1_ out GND avsd_opamp		
+v2  in2 GND sine		
+v1  in1 GND sine		
+v6  Net-_X1-Pad1_ GND DC		
+v4  GND Net-_X1-Pad2_ DC		
+v5  GND Net-_X2-Pad2_ DC		
+v3  Net-_X2-Pad1_ GND DC		
+v7  Net-_SC1-Pad3_ GND DC		
+v8  GND Net-_X3-Pad2_ DC		
+scmode1  SKY130mode		
+SC5  Net-_SC1-Pad1_ Net-_SC5-Pad2_ Net-_SC1-Pad3_ sky130_fd_pr__res_generic_pd		
+SC6  Net-_SC5-Pad2_ out Net-_SC1-Pad3_ sky130_fd_pr__res_generic_pd		
+SC1  Net-_SC1-Pad1_ Net-_SC1-Pad2_ Net-_SC1-Pad3_ sky130_fd_pr__res_generic_pd		
+SC2  Net-_SC1-Pad2_ Net-_SC2-Pad2_ Net-_SC1-Pad3_ sky130_fd_pr__res_generic_pd		
+SC3  Net-_SC2-Pad2_ Net-_SC3-Pad2_ Net-_SC1-Pad3_ sky130_fd_pr__res_generic_pd		
+SC4  Net-_SC4-Pad1_ Net-_SC3-Pad2_ GND sky130_fd_pr__res_generic_pd		
+SC7  GND Net-_SC4-Pad1_ GND sky130_fd_pr__res_generic_pd		
+U3  out plot_v1		
+U1  in1 plot_v1		
+U2  in2 plot_v1		
+
+.end
